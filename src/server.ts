@@ -6,6 +6,11 @@ import http from "http";
 import { Server } from "socket.io";
 import { instrument } from "@socket.io/admin-ui";
 
+const corsOptions = {
+  origin: ["http://localhost:5173", "https://admin.socket.io"], 
+  credentials: true, 
+};
+
 dotenv.config();
 console.log("");
 console.log("===================================");
@@ -15,7 +20,8 @@ import initSocket from "./socket";
 const port = process.env.PORT || 9000;
 
 const app = express();
-app.use(cors());
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 app.get("/api/health", (req, res) =>
@@ -23,11 +29,9 @@ app.get("/api/health", (req, res) =>
 );
 
 const httpServer = http.createServer(app);
+
 const io = new Server(httpServer, {
-  cors: {
-    origin: "*",
-    credentials: true,
-  },
+  cors: corsOptions,
 });
 
 instrument(io, {
