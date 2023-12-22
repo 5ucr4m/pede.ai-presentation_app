@@ -5,8 +5,9 @@
   "main": "./src/server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:prod": "tsc && node build/server.js",
-    "start:dev": "ts-node-dev --transpile-only --watch node_modules src/server.ts"
+    "start:prod": "node build/server.js",
+    "start:dev": "ts-node-dev --transpile-only --watch node_modules src/server.ts",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
