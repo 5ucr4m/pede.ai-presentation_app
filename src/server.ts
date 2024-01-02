@@ -7,7 +7,7 @@ import { Server } from "socket.io";
 import { instrument } from "@socket.io/admin-ui";
 
 const corsOptions = {
-  origin: ["http://localhost:5173", "https://admin.socket.io"], 
+  origin: ["http://localhost:5173", "https://admin.socket.io", "https://main--incredible-faloodeh-a0781e.netlify.app"], 
   credentials: true, 
 };
 
