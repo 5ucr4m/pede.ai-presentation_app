@@ -61,7 +61,7 @@ export default (io: Server) => {
       gameSocket.to(room).emit("update-users", users);
       gameSocket.to(room).emit("change-status", "show");
 
-      callback(users);
+      callback(users, "show");
     });
 
     gameSocket.onAny((eventName: string, ...args: any) => {
