@@ -49,7 +49,7 @@ export default (io: Server) => {
 
       const users = await roomControl.getUsers(room);
       gameSocket.to(room).emit("update-users", users);
-      gameSocket.to(room).emit("change-status", "show");
+      gameSocket.to(room).emit("change-status", "hide");
       
       callback(users);
     });
